@@ -1,0 +1,113 @@
+commit 6a2ca59d2d57809a3c8254b5e15712f65ca12209
+Author: papirila <pauliina.pirila@helsinki.fi>
+Date:   Tue Mar 19 17:49:04 2019 +0200
+
+    poistettiin file1 ja uudelleennimettiin file2
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit b396bdfcdec35dda67294b9879313214afd5dfe5
+Author: papirila <pauliina.pirila@helsinki.fi>
+Date:   Tue Mar 19 17:42:58 2019 +0200
+
+    luotiin tiedostoja hakemisto, sekä filet
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 35d11415bafccf7ebe54d43e82bc7ff5ab1d84f0
+Author: papirila <pauliina.pirila@helsinki.fi>
+Date:   Tue Mar 19 17:35:53 2019 +0200
+
+    muokattiin
+
+ eka.txt    | 2 +-
+ kolmas.txt | 1 +
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+commit 068b0946d4d6cc6ae5acd9719b7f919fb6acdae3
+Author: papirila <pauliina.pirila@helsinki.fi>
+Date:   Tue Mar 19 17:32:05 2019 +0200
+
+    uudelleennimettiin tieodsto.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 4943f7bb684cbecb3af5dc9fabdb225d2637ca01
+Author: papirila <pauliina.pirila@helsinki.fi>
+Date:   Tue Mar 19 17:30:15 2019 +0200
+
+    poistettiin toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit c14fac635770063e58fb1c555a4a842983c765f3
+Author: papirila <pauliina.pirila@helsinki.fi>
+Date:   Tue Mar 19 17:21:22 2019 +0200
+
+    muokattu tiedosto.txt
+
+ tiedosto.txt | 21 ++-------------------
+ 1 file changed, 2 insertions(+), 19 deletions(-)
+
+commit 7636c21bbb65b6f070e86bfeb613db524af1e41b
+Author: papirila <pauliina.pirila@helsinki.fi>
+Date:   Tue Mar 19 17:16:54 2019 +0200
+
+    lisättiin tiedosto.txt:iin tekstiä
+
+ tiedosto.txt | 73 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 73 insertions(+)
+
+commit e89cd732511174e479a4c8a573808017e80fcb9b
+Author: papirila <pauliina.pirila@helsinki.fi>
+Date:   Tue Mar 19 17:12:22 2019 +0200
+
+    stuff hakemisto lisätty ja stuff.txt lisätty stuff hakemistoon
+
+ stuff/stuff.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit c1bff09ffc8ada67a9eb6e307bdaef21d45db05f
+Author: papirila <pauliina.pirila@helsinki.fi>
+Date:   Tue Mar 19 17:09:33 2019 +0200
+
+    muokattiin tiedostoja toinen ja kolmas
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 53fa7e26e023452b84cea1a0d5ccf08a20f829c5
+Author: papirila <pauliina.pirila@helsinki.fi>
+Date:   Tue Mar 19 17:06:28 2019 +0200
+
+    luotu kolmas tiedosto
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit fb104b365fbaa8d90789085e862f294f2df0eb55
+Author: papirila <pauliina.pirila@helsinki.fi>
+Date:   Tue Mar 19 17:02:33 2019 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 4118b4d3d0f835ba474c51f8e3705e6a18bd5bdc
+Author: papirila <pauliina.pirila@helsinki.fi>
+Date:   Tue Mar 19 16:58:45 2019 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
