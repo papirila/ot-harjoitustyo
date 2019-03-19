@@ -1,6 +1,6 @@
 # Harjoitustyö
 
-Tämä on **harjoitustyö**. Se on *hieno*.
+Tämä on **harjoitustyö**. Se on *hieno*. juu
 
 ## Tehtävät
 
