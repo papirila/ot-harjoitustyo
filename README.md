@@ -1,15 +1,9 @@
 # Harjoitustyö
 
-Tämä on **harjoitustyö**. Se on *hieno*. juu
+Harjoitustyön aiheena on **Studytracker**. Ohjelman avulla opiskelija voi pitää kirjaa omista opinnoistaan.
 
-## Tehtävät
+## Dokumentaatio
 
-### Viikko 1
-
-[gitlog.txt](https://github.com/papirila/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt) 
-
-[komentorivi.txt](https://github.com/papirila/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
-
-### Viikko 2
+[vaatimusmaarittely.md](https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 [tyoaikakirjanpito.md](https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
