@@ -1,4 +1,4 @@
-package studytracker.UI;
+package ui;
 
 import Databases.Course;
 import javafx.application.Application;
