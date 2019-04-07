@@ -1,6 +1,6 @@
 package ui;
 
-import Databases.Course;
+import domain.Course;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

@@ -1,5 +1,5 @@
 
-package Databases;
+package domain;
 
 
 public class Course {

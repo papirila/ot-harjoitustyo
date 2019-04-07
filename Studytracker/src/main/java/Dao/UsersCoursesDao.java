@@ -1,13 +1,14 @@
-package Databases;
+package Dao;
 
+import Databases.Database;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class StudiesDao {
+public class UsersCoursesDao {
     private Database database;
     private Connection conn;
     
-    public StudiesDao(Database database) throws SQLException {
+    public UsersCoursesDao(Database database) throws SQLException {
         this.database = database;
         this.conn = database.getConnection();
     }
