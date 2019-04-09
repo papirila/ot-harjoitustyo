@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-import Databases.Course;
+import domain.Course;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;

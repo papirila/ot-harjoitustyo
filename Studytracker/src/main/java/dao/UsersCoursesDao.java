@@ -1,6 +1,6 @@
-package Dao;
+package dao;
 
-import Databases.Database;
+import databases.Database;
 import java.sql.Connection;
 import java.sql.SQLException;
 
