@@ -4,6 +4,8 @@ Harjoitustyön aiheena on **Studytracker**. Ohjelman avulla opiskelija voi pitä
 
 ## Dokumentaatio
 
-[vaatimusmaarittely.md](https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+[Vaatimusmaarittely](https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
-[tyoaikakirjanpito.md](https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
+[Tyoaikakirjanpito](https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
+
+[Arkkitehtuuri](https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
