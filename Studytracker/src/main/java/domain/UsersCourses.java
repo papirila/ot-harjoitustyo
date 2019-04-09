@@ -23,6 +23,21 @@ public class UsersCourses {
     public boolean isPassed() {
         return passed;
     }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public int getCourseId() {
+        return courseId;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString(); 
+    }
+    
+    
     
     
     

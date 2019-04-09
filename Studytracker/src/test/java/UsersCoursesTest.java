@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import domain.UsersCourses;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -17,28 +18,29 @@ import static org.junit.Assert.*;
  */
 public class UsersCoursesTest {
     
-    public UsersCoursesTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
     
     @Before
     public void setUp() {
     }
-    
-    @After
-    public void tearDown() {
+    @Test
+    public void idIsSetRight(){
+        UsersCourses uc = new UsersCourses(1, true, 2, 3);
+        assertEquals(1, uc.getId());
     }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void passedBooleanIsSetRight(){
+        UsersCourses uc = new UsersCourses(1, true, 2, 3);
+        assertEquals(true, uc.isPassed());
+    }
+    @Test
+    public void userIdIsSetRight(){
+        UsersCourses uc = new UsersCourses(1, true, 2, 3);
+        assertEquals(3, uc.getUserId());
+    }
+    @Test
+    public void courseIdIsSetRight(){
+        UsersCourses uc = new UsersCourses(1, true, 2, 3);
+        assertEquals(2, uc.getCourseId());
+    }
+    
 }
