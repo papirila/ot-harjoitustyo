@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2019</copyright>
     <item>
-      <title>File: 6,
+      <title>File: 10,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -47,6 +47,34 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#domain.UsersCourses.java">domain/UsersCourses.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#dao.CourseDao.java">dao/CourseDao.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#dao.UserDao.java">dao/UserDao.java</a>
                 </td>
                 <td>
                   0
@@ -102,6 +130,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="${project.url}/checkstyle.html#ui.Login.java">ui/Login.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="${project.url}/checkstyle.html#dao.UsersCoursesDao.java">dao/UsersCoursesDao.java</a>
                 </td>
                 <td>
@@ -117,6 +159,20 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#domain.User.java">domain/User.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#dao.Dao.java">dao/Dao.java</a>
                 </td>
                 <td>
                   0

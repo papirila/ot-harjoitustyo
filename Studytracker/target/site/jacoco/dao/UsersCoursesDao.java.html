@@ -3,14 +3,35 @@
 import databases.Database;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
-public class UsersCoursesDao {
+public class UsersCoursesDao implements Dao{
     private Database database;
     private Connection conn;
     
-<span class="nc" id="L11">    public UsersCoursesDao(Database database) throws SQLException {</span>
-<span class="nc" id="L12">        this.database = database;</span>
-<span class="nc" id="L13">        this.conn = database.getConnection();</span>
-<span class="nc" id="L14">    }</span>
+<span class="nc" id="L12">    public UsersCoursesDao(Database database) throws SQLException {</span>
+<span class="nc" id="L13">        this.database = database;</span>
+<span class="nc" id="L14">        this.conn = database.getConnection();</span>
+<span class="nc" id="L15">    }</span>
+
+    @Override
+    public Object findOne(Object key) throws SQLException {
+<span class="nc" id="L19">        throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.</span>
+    }
+
+    @Override
+    public List findAll() throws SQLException {
+<span class="nc" id="L24">        throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.</span>
+    }
+
+//    @Override
+//    public Object saveOrUpdate(Object object) throws SQLException {
+//        throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.
+//    }
+
+    @Override
+    public void delete(Object key) throws SQLException {
+<span class="nc" id="L34">        throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

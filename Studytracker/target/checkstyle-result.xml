@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="6.11.2">
+<file name="C:\Users\Pauliina\Documents\GitHub\ot-harjoitustyo\Studytracker\src\main\java\dao\CourseDao.java">
+</file>
+<file name="C:\Users\Pauliina\Documents\GitHub\ot-harjoitustyo\Studytracker\src\main\java\dao\Dao.java">
+</file>
+<file name="C:\Users\Pauliina\Documents\GitHub\ot-harjoitustyo\Studytracker\src\main\java\dao\UserDao.java">
+</file>
 <file name="C:\Users\Pauliina\Documents\GitHub\ot-harjoitustyo\Studytracker\src\main\java\dao\UsersCoursesDao.java">
 </file>
 <file name="C:\Users\Pauliina\Documents\GitHub\ot-harjoitustyo\Studytracker\src\main\java\databases\Database.java">
@@ -9,6 +15,8 @@
 <file name="C:\Users\Pauliina\Documents\GitHub\ot-harjoitustyo\Studytracker\src\main\java\domain\User.java">
 </file>
 <file name="C:\Users\Pauliina\Documents\GitHub\ot-harjoitustyo\Studytracker\src\main\java\domain\UsersCourses.java">
+</file>
+<file name="C:\Users\Pauliina\Documents\GitHub\ot-harjoitustyo\Studytracker\src\main\java\ui\Login.java">
 </file>
 <file name="C:\Users\Pauliina\Documents\GitHub\ot-harjoitustyo\Studytracker\src\main\java\ui\UI.java">
 </file>

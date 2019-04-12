@@ -16,6 +16,14 @@ public class Course {
         this.grade = grade;
     }
 
+    public Course(int id, String name, int studyPoints) {
+        this.id = id;
+        this.name = name;
+        this.studyPoints = studyPoints;
+    }
+    
+    
+
     public int getId() {
         return id;
     }
