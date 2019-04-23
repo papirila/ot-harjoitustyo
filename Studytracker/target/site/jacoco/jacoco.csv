@@ -1,8 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-Studytracker,databases,Database,15,0,0,0,7,0,2,0,2,0
-Studytracker,dao,UserDao,157,0,8,0,42,0,10,0,6,0
-Studytracker,dao,UsersCoursesDao,25,0,0,0,7,0,4,0,4,0
-Studytracker,dao,CourseDao,25,0,0,0,7,0,4,0,4,0
-Studytracker,domain,User,62,21,10,0,16,8,8,4,3,4
-Studytracker,domain,Course,3,27,0,0,1,10,1,5,1,5
-Studytracker,domain,UsersCourses,3,27,0,0,1,10,1,5,1,5

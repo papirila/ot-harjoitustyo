@@ -1,9 +1,0 @@
-domain\Course.class
-dao\UsersCoursesDao.class
-ui\UI$1.class
-ui\UI.class
-databases\Database.class
-ui\UI$2.class
-ui\UI$3.class
-domain\UsersCourses.class
-domain\User.class
