@@ -1,6 +1,6 @@
-package dao;
+package studytracker.dao;
 
-import databases.Database;
+import studytracker.databases.Database;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;

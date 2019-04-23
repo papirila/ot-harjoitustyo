@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ui;
+package studytracker.ui;
 
-import dao.UserDao;
+import studytracker.dao.UserDao;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,8 +15,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import databases.Database;
-import domain.User;
+import studytracker.databases.Database;
+import studytracker.domain.User;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

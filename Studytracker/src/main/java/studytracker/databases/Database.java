@@ -1,4 +1,4 @@
-package databases;
+package studytracker.databases;
 
 import java.sql.*;
 

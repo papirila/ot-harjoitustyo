@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package studytracker.dao;
 
-import databases.Database;
-import domain.User;
+import studytracker.databases.Database;
+import studytracker.domain.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

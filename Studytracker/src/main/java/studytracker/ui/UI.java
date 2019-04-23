@@ -1,6 +1,6 @@
-package ui;
+package studytracker.ui;
 
-import domain.Course;
+import studytracker.domain.Course;
 import javafx.application.Application;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

@@ -1,10 +1,11 @@
+package studytracker.domain;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-import domain.Course;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;

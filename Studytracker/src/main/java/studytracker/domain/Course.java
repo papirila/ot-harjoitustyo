@@ -1,5 +1,5 @@
 
-package domain;
+package studytracker.domain;
 
 
 public class Course {
