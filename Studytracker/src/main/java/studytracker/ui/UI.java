@@ -31,6 +31,8 @@ public class UI extends Application {
         Label lb = new Label("Passed courses");
         ObservableList<Course> data = FXCollections.observableArrayList();
         
+        TextField addId = new TextField(); 
+        addId.setPromptText("Course id");
         TextField addName = new TextField(); 
         addName.setPromptText("Course name");
         TextField addPoints = new TextField(); 
@@ -39,6 +41,15 @@ public class UI extends Application {
         addGrade.setPromptText("Grade");
         
         
+        addId.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, 
+                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    addPoints.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
         addPoints.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, 
@@ -62,11 +73,12 @@ public class UI extends Application {
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 System.out.println(addName.getText());
-                data.add(new Course(9999,
+                data.add(new Course(Integer.valueOf(addId.getText()),
                     addName.getText(),
                     Integer.valueOf(addPoints.getText()),
                     Integer.valueOf(addGrade.getText())
                 ));
+                addId.clear();
                 addName.clear();
                 addPoints.clear();
                 addGrade.clear();
@@ -75,11 +87,17 @@ public class UI extends Application {
         
         
         ObservableList list = hbox.getChildren();  
-        list.addAll(addName, addPoints, addGrade, button);    
+        list.addAll(addId, addName, addPoints, addGrade, button);    
         
       
         TableView passedCourses = new TableView();
 
+        TableColumn courseIdColumn = new TableColumn("Course id");
+        courseIdColumn.setMinWidth(50);
+        
+        courseIdColumn.setCellValueFactory(
+            new PropertyValueFactory<Course,String>("Id")
+        );
         TableColumn courseNameColumn = new TableColumn("Course name");
         courseNameColumn.setMinWidth(200);
         
@@ -100,7 +118,7 @@ public class UI extends Application {
         );
         passedCourses.setItems(data);
         
-        passedCourses.getColumns().addAll(courseNameColumn, studypointsColumn, gradeColumn);
+        passedCourses.getColumns().addAll(courseIdColumn, courseNameColumn, studypointsColumn, gradeColumn);
         
         
         // TÄSTÄ ALKAA TOINEN LISTA ILMOTUT KURSSIT
@@ -109,11 +127,22 @@ public class UI extends Application {
         Label lb2 = new Label("Applied courses");
         ObservableList<Course> data2 = FXCollections.observableArrayList();
         
+        TextField addId2 = new TextField(); 
+        addId2.setPromptText("Course id");
         TextField addName2 = new TextField(); 
         addName2.setPromptText("Course name");
         TextField addPoints2 = new TextField(); 
         addPoints2.setPromptText("Study points");
         
+        addId2.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, 
+                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    addPoints.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
         addPoints2.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, 
@@ -128,10 +157,11 @@ public class UI extends Application {
         button2.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 System.out.println(addName2.getText());
-                data2.add(new Course(9999,
+                data2.add(new Course(Integer.valueOf(addId2.getText()),
                     addName2.getText(),
                     Integer.valueOf(addPoints2.getText())
                 ));
+                addId2.clear();
                 addName2.clear();
                 addPoints2.clear();
                 
@@ -139,10 +169,16 @@ public class UI extends Application {
         });
         
         ObservableList list2 = hbox2.getChildren();  
-        list2.addAll(addName2, addPoints2, button2);
+        list2.addAll(addId2, addName2, addPoints2, button2);
         
         TableView appliedCourses = new TableView();
 
+        TableColumn courseIdColumn2 = new TableColumn("Course id");
+        courseIdColumn2.setMinWidth(50);
+        
+        courseIdColumn2.setCellValueFactory(
+            new PropertyValueFactory<Course,String>("Id")
+        );
         TableColumn courseNameColumn2 = new TableColumn("Course name");
         courseNameColumn2.setMinWidth(200);
         
@@ -158,10 +194,20 @@ public class UI extends Application {
         
         appliedCourses.setItems(data2);
         
-        appliedCourses.getColumns().addAll(courseNameColumn2, studypointsColumn2);
+        appliedCourses.getColumns().addAll(courseIdColumn2, courseNameColumn2, studypointsColumn2);
         
         
         // TÄHÄN LOPPUU
+        
+        
+        Label labelDelete = new Label("Delete by id: ");
+        TextField tfDelete = new TextField();
+        tfDelete.setPrefWidth(30);
+        Button deleteButton = new Button();
+        deleteButton.setText("Delete");
+        grid.add(labelDelete, 1, 4);
+        grid.add(tfDelete, 1, 5);
+        grid.add(deleteButton, 1, 6);
         
         grid.add(lb, 0, 0);
         grid.add(passedCourses, 0, 1);
@@ -174,7 +220,7 @@ public class UI extends Application {
         StackPane root = new StackPane();
         root.getChildren().add(grid);
         
-        Scene scene = new Scene(root, 1000, 1000);
+        Scene scene = new Scene(root, 1200, 1200);
         
         primaryStage.setTitle("Studytracker");
         primaryStage.setScene(scene);
