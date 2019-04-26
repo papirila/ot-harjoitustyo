@@ -2,8 +2,12 @@ package studytracker.dao;
 
 import studytracker.databases.Database;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import studytracker.domain.UsersCourses;
 
 public class UsersCoursesDao implements Dao {
 
@@ -17,20 +21,40 @@ public class UsersCoursesDao implements Dao {
 
     @Override
     public Object findOne(Object key) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM UsersCourses WHERE id = ?");
+        stmt.setObject(1, key);
+        ResultSet rs = stmt.executeQuery();
+        if (!rs.next()) {
+            return null;
+        }
+        UsersCourses uc = new UsersCourses(rs.getInt("id"), rs.getBoolean("passed"), rs.getInt("courseId"), rs.getInt("userId"));
+        rs.close();
+        stmt.close();
+        conn.close();
+        return uc;
     }
 
     @Override
     public List findAll() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM UsersCourses");
+        List<UsersCourses> list = new ArrayList<>();
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            UsersCourses uc = new UsersCourses(rs.getInt("id"), rs.getBoolean("passed"), rs.getInt("courseId"), rs.getInt("userId"));
+            list.add(uc);
+            System.out.println(uc);
+        }
+        rs.close();
+        stmt.close();
+        conn.close();
+        return list;
     }
 
-//    @Override
-//    public Object saveOrUpdate(Object object) throws SQLException {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
     @Override
     public void delete(Object key) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM UsersCourses WHERE id = ?");
+        stmt.setObject(1, key);
+        stmt.executeUpdate();
+        conn.close();
     }
 }
