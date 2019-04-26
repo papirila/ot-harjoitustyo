@@ -22,8 +22,6 @@ public class Course {
         this.studyPoints = studyPoints;
     }
     
-    
-
     public int getId() {
         return id;
     }
