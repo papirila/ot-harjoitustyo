@@ -8,4 +8,5 @@
 | 9.4.  |  4   | checkstyle lisätty, ohjelma ottaa yhteyden tietokantaan, tehtiin pakkauskaavio, testikattavuus 68% | 
 | 10.4. |  4  | login luokka, Dao luokat, tietokantoja
 | 12.4. |  2  | github release, sekvenssikaavio, README. md päivitys |
-|  yht. |  16  | projekti edistyy tasaisesti! |
+| 26.4. | 4 | delete toiminnallisuus|
+|  yht. |  20  | projekti edistyy tasaisesti! |
