@@ -204,6 +204,19 @@ public class UI extends Application {
         TextField tfDelete = new TextField();
         tfDelete.setPrefWidth(30);
         Button deleteButton = new Button();
+        deleteButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                int nro = Integer.valueOf(tfDelete.getText());
+                for (int i = 0; i < data2.size(); i++) {
+                    if (data2.get(i).getId() == nro) {
+                        data2.remove(i);
+                        i = data2.size();
+                    }
+                }
+                tfDelete.clear();
+            }
+        });
+        
         deleteButton.setText("Delete");
         grid.add(labelDelete, 1, 4);
         grid.add(tfDelete, 1, 5);

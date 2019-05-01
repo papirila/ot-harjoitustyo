@@ -17,6 +17,7 @@ import org.junit.Test;
 public class CourseTest {
     
     public CourseTest() {
+        
     }
     
     @Before
@@ -46,6 +47,13 @@ public class CourseTest {
         assertEquals(1, course.getId());
         
     }
+    
+//    @Test
+//    public void poistoTesti() throws ClassNotFoundException, SQLException {
+//        Database db = new Database("jdbc:sqlite:test.db");
+//        CourseDao cd = new CourseDao(db);
+//        cd.delete(3);
+//    }
     
     
 }
