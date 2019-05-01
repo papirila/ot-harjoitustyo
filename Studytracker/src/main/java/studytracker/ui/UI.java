@@ -46,7 +46,7 @@ public class UI extends Application {
             public void changed(ObservableValue<? extends String> observable, String oldValue, 
                 String newValue) {
                 if (!newValue.matches("\\d*")) {
-                    addPoints.setText(newValue.replaceAll("[^\\d]", ""));
+                    addId.setText(newValue.replaceAll("[^\\d]", ""));
                 }
             }
         });
@@ -139,7 +139,7 @@ public class UI extends Application {
             public void changed(ObservableValue<? extends String> observable, String oldValue, 
                 String newValue) {
                 if (!newValue.matches("\\d*")) {
-                    addPoints.setText(newValue.replaceAll("[^\\d]", ""));
+                    addId2.setText(newValue.replaceAll("[^\\d]", ""));
                 }
             }
         });
@@ -148,7 +148,7 @@ public class UI extends Application {
             public void changed(ObservableValue<? extends String> observable, String oldValue, 
                 String newValue) {
                 if (!newValue.matches("\\d*")) {
-                    addPoints.setText(newValue.replaceAll("[^\\d]", ""));
+                    addPoints2.setText(newValue.replaceAll("[^\\d]", ""));
                 }
             }
         });
