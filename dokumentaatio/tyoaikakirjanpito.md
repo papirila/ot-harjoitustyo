@@ -9,4 +9,5 @@
 | 10.4. |  4  | login luokka, Dao luokat, tietokantoja
 | 12.4. |  2  | github release, sekvenssikaavio, README. md päivitys |
 | 26.4. | 4 | delete toiminnallisuus|
-|  yht. |  20  | projekti edistyy tasaisesti! |
+| 3.5. | 7 | testejä lisätty |
+|  yht. |  27  | projekti edistyy tasaisesti! |
