@@ -19,11 +19,11 @@ public class CourseDao implements Dao {
 
     public CourseDao(Database database) throws SQLException {
         this.database = database;
-        this.conn = database.getConnection();
     }
 
     @Override
     public Object findOne(Object key) throws SQLException {
+        conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Course WHERE id = ?");
         stmt.setObject(1, key);
         ResultSet rs = stmt.executeQuery();
@@ -39,6 +39,7 @@ public class CourseDao implements Dao {
 
     @Override
     public List findAll() throws SQLException {
+        conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Course");
         List<Course> list = new ArrayList<>();
         ResultSet rs = stmt.executeQuery();
@@ -54,6 +55,7 @@ public class CourseDao implements Dao {
     }
     
     public void delete(Object key) throws SQLException {
+        conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("DELETE FROM Course WHERE id = ?");
         stmt.setObject(1, key);
         stmt.executeUpdate();

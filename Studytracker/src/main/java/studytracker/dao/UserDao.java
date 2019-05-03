@@ -17,11 +17,11 @@ public class UserDao implements Dao {
 
     public UserDao(Database database) throws SQLException {
         this.database = database;
-        this.conn = database.getConnection();
     }
 
     @Override
     public Object findOne(Object key) throws SQLException {
+        conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM User WHERE id = ?");
         stmt.setObject(1, key);
         ResultSet rs = stmt.executeQuery();
@@ -36,6 +36,7 @@ public class UserDao implements Dao {
     }
 
     public User findUser(String name, String password) throws SQLException {
+        conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM User WHERE name = ? AND password = ?");
         stmt.setString(1, name);
         stmt.setString(2, password);
@@ -52,6 +53,7 @@ public class UserDao implements Dao {
 
     @Override
     public List findAll() throws SQLException {
+        conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM User");
         List<User> list = new ArrayList<>();
         ResultSet rs = stmt.executeQuery();
