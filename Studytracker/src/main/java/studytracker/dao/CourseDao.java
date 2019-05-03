@@ -1,4 +1,3 @@
-
 package studytracker.dao;
 
 import studytracker.databases.Database;
@@ -9,8 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import studytracker.domain.Course;
-
-
 
 public class CourseDao implements Dao {
 
@@ -53,13 +50,39 @@ public class CourseDao implements Dao {
         conn.close();
         return list;
     }
-    
+
     public void delete(Object key) throws SQLException {
         conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("DELETE FROM Course WHERE id = ?");
         stmt.setObject(1, key);
         stmt.executeUpdate();
+        stmt.close();
         conn.close();
+    }
+
+    public void create(Course course) throws SQLException {
+        conn = database.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("INSERT INTO Course (userId, name, studypoints, grade, passed)"
+                + "VALUES (?, ?, ?, ?, ?)");
+        stmt.setInt(1, course.getUserId());
+        stmt.setString(2, course.getName());
+        stmt.setInt(3, course.getStudyPoints());
+        stmt.setInt(4, course.getGrade());
+        stmt.setBoolean(5, course.getPassed());
+        stmt.executeUpdate();
+        stmt.close();
+        conn.close();
+    }
+    
+    public int getMaxId() throws SQLException {
+        conn = database.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT max(id) FROM Course");
+        ResultSet rs = stmt.executeQuery();
+        int id = rs.getInt(1);
+        rs.close();
+        stmt.close();
+        conn.close();
+        return id; 
     }
 
 }

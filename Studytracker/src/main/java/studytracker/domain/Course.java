@@ -17,6 +17,15 @@ public class Course {
         this.grade = grade;
         this.passed = passed;
     }
+    
+    public Course(int id, int userId, String name, int studyPoints) {
+        this.id = id;
+        this.userId = userId;
+        this.name = name;
+        this.studyPoints = studyPoints;
+        this.grade = -1;
+        this.passed = false;
+    }
 
 //    public Course(int id, String name, int studyPoints) {
 //        this.id = id;
