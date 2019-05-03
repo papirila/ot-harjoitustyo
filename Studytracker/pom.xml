@@ -32,7 +32,7 @@
                 <version>0.8.3</version>
                 <configuration>
                     <excludes>
-                        <exclude>ui/</exclude>
+                        <exclude>studytracker/ui/</exclude>
                     </excludes>
                 </configuration>   
                 <executions>

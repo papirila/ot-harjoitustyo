@@ -29,4 +29,20 @@ public class UserTest {
         User user = new User(1, "Mary", "123");
         assertEquals("123", user.getPassword());
     }
+    @Test 
+    public void toStringIsRight() {
+        User user = new User(1, "Mary", "123");
+        assertEquals("Mary 123", user.toString());
+    }
+    @Test 
+    public void hashCodeTest() {
+        
+    }
+//    @Test
+//    public void testEquals_Symmetric() {
+//    Person x = new Person("Foo Bar");  // equals and hashCode check name field value
+//    Person y = new Person("Foo Bar");
+//    Assert.assertTrue(x.equals(y) && y.equals(x));
+//    Assert.assertTrue(x.hashCode() == y.hashCode());
+//    }
 }
