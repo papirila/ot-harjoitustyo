@@ -30,7 +30,7 @@ public class CourseDao implements Dao {
         if (!rs.next()) {
             return null;
         }
-        Course course = new Course(rs.getInt("id"), rs.getString("name"), rs.getInt("studyPoints"), rs.getInt("grade"));
+        Course course = new Course(rs.getInt("id"), rs.getInt("userId"), rs.getString("name"), rs.getInt("studyPoints"), rs.getInt("grade"), rs.getBoolean("passed"));
         rs.close();
         stmt.close();
         conn.close();
@@ -43,7 +43,7 @@ public class CourseDao implements Dao {
         List<Course> list = new ArrayList<>();
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
-            Course course = new Course(rs.getInt("id"), rs.getString("name"), rs.getInt("studyPoints"), rs.getInt("grade"));
+            Course course = new Course(rs.getInt("id"), rs.getInt("userId"), rs.getString("name"), rs.getInt("studyPoints"), rs.getInt("grade"), rs.getBoolean("passed"));
             list.add(course);
             System.out.println(course);
         }

@@ -25,28 +25,41 @@ public class CourseTest {
     }
     @Test
     public void coursenameIsSetRight() {
-        Course course = new Course(1, "Tilpa", 10, 5);
+        Course course = new Course(1, 2, "Tilpa", 10, 5, false);
         assertEquals("Tilpa", course.getName());
         
     }
+    
     @Test
     public void courseGradeIsSetRight() {
-        Course course = new Course(1, "Tilpa", 10, 5);
+        Course course = new Course(1, 2, "Tilpa", 10, 5, false);
         assertEquals(5, course.getGrade());
    
     }
     @Test
     public void coursePointsAreSetRight() {
-        Course course = new Course(1, "Tilpa", 10, 5);
+        Course course = new Course(1, 2, "Tilpa", 10, 5, false);
         assertEquals(10, course.getStudyPoints());
         
     }
     @Test
     public void courseIdIsSetRight() {
-        Course course = new Course(1, "Tilpa", 10, 5);
+        Course course = new Course(1, 2, "Tilpa", 10, 5, false);
         assertEquals(1, course.getId());
         
     }
+    @Test
+    public void courseUserIdIsSetRight() {
+        Course course = new Course(1, 2, "Tilpa", 10, 5, false);
+        assertEquals(2, course.getUserId());
+        
+    }
+    @Test
+    public void courseBooleanIsSetRight() {
+        Course course = new Course(1, 2, "Tilpa", 10, 5, false);
+        assertEquals(false, course.getPassed());
+    }
+    
     
 //    @Test
 //    public void poistoTesti() throws ClassNotFoundException, SQLException {

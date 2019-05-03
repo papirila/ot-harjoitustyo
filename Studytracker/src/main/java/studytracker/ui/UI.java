@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 
 
 public class UI extends Application {
+    private int id;
     
     @Override
     public void start(Stage primaryStage) {
@@ -74,9 +75,11 @@ public class UI extends Application {
             @Override public void handle(ActionEvent e) {
                 System.out.println(addName.getText());
                 data.add(new Course(Integer.valueOf(addId.getText()),
+                    3,
                     addName.getText(),
                     Integer.valueOf(addPoints.getText()),
-                    Integer.valueOf(addGrade.getText())
+                    Integer.valueOf(addGrade.getText()),
+                    true
                 ));
                 addId.clear();
                 addName.clear();
@@ -156,10 +159,12 @@ public class UI extends Application {
         Button button2 = new Button("Add");
         button2.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                System.out.println(addName2.getText());
                 data2.add(new Course(Integer.valueOf(addId2.getText()),
+                    3,
                     addName2.getText(),
-                    Integer.valueOf(addPoints2.getText())
+                    Integer.valueOf(addPoints2.getText()),
+                    0,
+                    false
                 ));
                 addId2.clear();
                 addName2.clear();
@@ -202,6 +207,17 @@ public class UI extends Application {
         
         Label labelDelete = new Label("Delete by id: ");
         TextField tfDelete = new TextField();
+        
+        tfDelete.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, 
+                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    tfDelete.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
+        
         tfDelete.setPrefWidth(30);
         Button deleteButton = new Button();
         deleteButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -243,6 +259,10 @@ public class UI extends Application {
     
     public static void main(String[] args) {
         launch(args);
+    }
+    
+    public void setId(int id) {
+        this.id = id;
     }
     
 }
