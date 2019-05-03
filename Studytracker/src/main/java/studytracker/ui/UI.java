@@ -123,6 +123,7 @@ public class UI extends Application {
         
         passedCourses.getColumns().addAll(courseIdColumn, courseNameColumn, studypointsColumn, gradeColumn);
         
+        Label allStudyPoints = new Label("Total studypoints");
         
         // TÄSTÄ ALKAA TOINEN LISTA ILMOTUT KURSSIT
         
@@ -245,6 +246,8 @@ public class UI extends Application {
         grid.add(lb2, 1, 0);
         grid.add(appliedCourses, 1, 1);
         grid.add(hbox2, 1, 3);
+        
+        grid.add(allStudyPoints, 0, 4);
         
         StackPane root = new StackPane();
         root.getChildren().add(grid);

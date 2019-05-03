@@ -85,8 +85,6 @@ public class CourseDaoTest {
         Course course = new Course(cd.getMaxId(), 4, "name", 0);
         cd.delete(course);
         int size2 = cd.findAll().size();
-        System.out.println(size);
-        System.out.println(size2);
         assertEquals(size, size2);
     }
 
