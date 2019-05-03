@@ -17,7 +17,7 @@ public class CourseDaoTest {
     private CourseDao cd;
     private Connection conn;
     private Course tiltu;
-    private Course tiltu2;
+    private Course tiltu3;
     private List<Course> all;
     
     public CourseDaoTest() {
@@ -30,7 +30,6 @@ public class CourseDaoTest {
         this.conn = database.getConnection();
         this.cd = new CourseDao(database);
         this.tiltu = (Course) cd.findOne(6); 
-        this.tiltu2 = (Course) cd.findOne(7);
         this.all = cd.findAll();
     }
     
@@ -69,11 +68,6 @@ public class CourseDaoTest {
         assertEquals(6, all.size());
     }
     
-    @Test 
-    public void deleteTest() throws SQLException {
-        cd.delete(tiltu2);
-        assertEquals(null, cd.findOne(7));
-    }
     
     
 }
