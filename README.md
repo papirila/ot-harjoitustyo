@@ -28,6 +28,16 @@ mvn jacoco:report
 
 Kattavuusraporttia voi tarkastella tiedostosta _target/site/jacoco/index.html_
 
+### JavaDoc
+
+JavaDoc generoidaan komennolla
+
+```
+mvn javadoc:javadoc
+```
+
+JavaDocia voi tarkastella tiedostosta _target/site/apidocs/index.html_
+
 ### Suoritettavan jarin generointi
 
 Komento
