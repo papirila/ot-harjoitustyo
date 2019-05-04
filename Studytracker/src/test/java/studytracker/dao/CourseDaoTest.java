@@ -86,5 +86,21 @@ public class CourseDaoTest {
         int size2 = cd.findAll().size();
         assertEquals(size - 1, size2);
     }
+    
+    @Test
+    public void findAllWithUserTest() throws SQLException {
+        assertEquals(2, cd.findAllWithUserId(2).size());
+    }
+    
+    @Test
+    public void chosenCoursesTest() throws SQLException {
+        assertEquals(0, cd.chosenCourses(2).size());
+    }
+    
+    @Test
+    public void passedCoursesTest() throws SQLException {
+        assertEquals(1, cd.passedCourses(2).size());
+    }
+    
 
 }

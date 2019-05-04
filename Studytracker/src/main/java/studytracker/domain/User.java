@@ -8,7 +8,10 @@ public class User {
     private int id;
     private String name;
     private String password;
-
+    
+    /**
+     * Yksittäistä käyttäjää kuvaava luokka
+     */
     public User(int id, String name, String password) {
         this.id = id;
         this.name = name;
@@ -44,14 +47,18 @@ public class User {
     public String toString() {
         return this.name + " " + this.password; 
     }
-
+    /**
+     * Käytetään vertailussa
+     */
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 89 * hash + Objects.hashCode(this.password);
         return hash;
     }
-
+    /**
+     * Tarkastelee ovatko kaksi käyttäjää samat, käytetään kirjautumisessa käyttäjien vertailussa
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

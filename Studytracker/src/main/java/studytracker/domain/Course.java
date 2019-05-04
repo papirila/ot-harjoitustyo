@@ -9,6 +9,9 @@ public class Course {
     private int grade;
     private boolean passed;
 
+    /**
+     * Yksittäistä kurssia kuvaava luokka
+     */
     public Course(int id, int userId, String name, int studyPoints, int grade, boolean passed) {
         this.id = id;
         this.userId = userId;

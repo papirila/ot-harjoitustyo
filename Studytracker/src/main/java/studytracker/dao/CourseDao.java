@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import studytracker.domain.Course;
-
+    /**
+     * Luokka vastaa luokan Course tietokantatoiminnasta
+     */
 public class CourseDao implements Dao {
 
     private Database database;
@@ -18,7 +20,9 @@ public class CourseDao implements Dao {
     public CourseDao(Database database) throws SQLException {
         this.database = database;
     }
-
+    /**
+     * Etsii tietokannan Course-taulusta yhden kurssin id:n perusteella, palauttaa null jos kurssia ei löydy.
+     */
     @Override
     public Object findOne(Object key) throws SQLException {
         conn = database.getConnection();
@@ -34,7 +38,10 @@ public class CourseDao implements Dao {
         conn.close();
         return course;
     }
-
+    /**
+     * Etsii tietokannan Course-taulusta kaikki kurssit, ja
+     * palauttaa ne listana.
+     */
     @Override
     public List<Course> findAll() throws SQLException {
         conn = database.getConnection();
@@ -51,7 +58,10 @@ public class CourseDao implements Dao {
         conn.close();
         return list;
     }
-    
+    /**
+     * Etsii tietokannan Course-taulusta kaikki yhden käyttäjän kurssit käyttäjän id:llä (eli userId:llä).
+     * Palauttaa käyttäjän kurssit listana.
+     */
     public List<Course> findAllWithUserId(int id) throws SQLException {
         conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Course WHERE userId = ?");
@@ -68,7 +78,9 @@ public class CourseDao implements Dao {
         conn.close();
         return list;
     }
-
+    /**
+     * Poistaa kurssin Course-taulusta kurssin id:llä.
+     */
     public void delete(int id) throws SQLException {
         conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("DELETE FROM Course WHERE id = ?");
@@ -77,7 +89,9 @@ public class CourseDao implements Dao {
         stmt.close();
         conn.close();
     }
-
+    /**
+     * Luo uuden kurssin Course-tietokantatauluun.
+     */
     public void create(Course course) throws SQLException {
         conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("INSERT INTO Course (userId, name, studypoints, grade, passed)"
@@ -91,7 +105,9 @@ public class CourseDao implements Dao {
         stmt.close();
         conn.close();
     }
-    
+    /**
+     * Palauttaa suurimman id:n arvon Course-tietokantataulun kurssien id-arvoista.
+     */
     public int getMaxId() throws SQLException {
         conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT max(id) FROM Course");
@@ -102,7 +118,12 @@ public class CourseDao implements Dao {
         conn.close();
         return id; 
     }
-    
+    /**
+     * Palauttaa käyttäjän läpäistyt kurssit. Metodille annetaan parametriksi käyttäjän id. 
+     * Metodi käyttää hyväkseen luokan findAllWithUserId-metodia, jolla läydetään kaikki käyttäjän kurssit,
+     * jotka filtteroidaan arvosanan perusteella. Jos kurssin arvosana on yli 0, se lisätään läpäistyjen 
+     * kurssien listalle.
+     */
     public List<Course> passedCourses(int id) throws SQLException {
         List<Course> list = findAllWithUserId(id);
         List<Course> filtered = new ArrayList();
@@ -113,7 +134,11 @@ public class CourseDao implements Dao {
         }
         return filtered;
     }
-    
+    /**
+     * Palauttaa käyttäjän kurssit, joille hän on ilmoittautunut. Metodille annetaan parametriksi käyttäjän id. 
+     * Metodi käyttää hyväkseen luokan findAllWithUserId-metodia, jolla läydetään kaikki käyttäjän kurssit,
+     * jotka filtteroidaan arvosanan perusteella. Jos kurssin arvosana on -1, se lisätään palautettavalle listalle.
+     */
     public List<Course> chosenCourses(int id) throws SQLException {
         List<Course> list = findAllWithUserId(id);
         List<Course> filtered = new ArrayList();
@@ -124,7 +149,12 @@ public class CourseDao implements Dao {
         } 
         return filtered;
     }
-    
+    /**
+     * Metodille annetaan parametreiksi kurssin id ja kurssin uusi arvosana. Metodi päivittää
+     * ilmoittauduttujen kurssien listalta kurssin id:n perusteella läpäistyksi kurssiksi
+     * muuttamalla arvosanan nollasta parametrina annetuksi arvosanaksi. Metodi myös päivittää kurssin
+     * passed-totuusarvon todeksi (true), kun se oli ennen epätosi (false).
+     */
     public void passCourse(int id, int grade) throws SQLException {
         conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("UPDATE Course SET grade = ?, passed = ? WHERE id = ? ");
@@ -135,10 +165,27 @@ public class CourseDao implements Dao {
         stmt.close();
         conn.close();    
     }
-
+    /**
+     * Poistaisi kurssin parametrilla key, mutta tälle metodille ei ole tarvetta, minkä vuoksi
+     * se heittää Exceptionin "Not supported yet."
+     */
     @Override
     public void delete(Object key) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    /**
+     * Laskee yhteen käyttäjän läpäistyjen kurssien opintopisteet. Metodille annetaan parametrina 
+     * käyttäjän id ja se käyttää hyväkseen passedCourses-metodia, joka palauttaa käyttäjän läpäistyt kurssit..
+     * Metodi palauttaa kokonaisopintopistemäärän.
+     */
+    public int allStudyPoints(int id) throws SQLException {
+        List<Course> passedList = passedCourses(id);
+        int points = 0;
+        for (int i = 0; i < passedList.size(); i++) {
+            int pointsFromOne = passedList.get(i).getStudyPoints();
+            points += pointsFromOne;
+        }
+        return points;
     }
 
 }

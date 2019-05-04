@@ -10,6 +10,9 @@ public class Database {
         this.databaseAddress = databaseAddress;
     }
     
+    /**
+     * Ottaa yhteyden Javan tietokantaan
+     */    
     public Connection getConnection() throws SQLException {
         try {
             Class.forName("org.sqlite.JDBC");

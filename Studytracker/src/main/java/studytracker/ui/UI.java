@@ -126,7 +126,7 @@ public class UI extends Application {
 
         passedCourses.getColumns().addAll(courseNameColumn, studypointsColumn, gradeColumn);
 
-        Label allStudyPoints = new Label("Total studypoints");
+        Label allStudyPoints = new Label("Total studypoints: " + cd.allStudyPoints(id));
 
         // TÄSTÄ ALKAA TOINEN LISTA ILMOTUT KURSSIT
         HBox hbox2 = new HBox();

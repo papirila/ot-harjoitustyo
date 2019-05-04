@@ -3,6 +3,9 @@ package studytracker.dao;
 import java.sql.*;
 import java.util.*;
 
+    /**
+     * Rajapinta CourseDao ja UserDao luokille
+     */
 public interface Dao<T, K> {
 
     T findOne(K key) throws SQLException;
