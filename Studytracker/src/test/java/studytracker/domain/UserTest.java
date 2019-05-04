@@ -7,10 +7,6 @@ import static org.junit.Assert.*;
 
 public class UserTest {
 
-    @Before
-    public void setUp() {
-    }
-
     @Test
     public void userNameIsRight() {
         User user = new User(1, "Mary", "123");

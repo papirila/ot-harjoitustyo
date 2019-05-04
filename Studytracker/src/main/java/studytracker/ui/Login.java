@@ -30,6 +30,9 @@ public class Login extends Application {
 
         Button login = new Button();
         login.setText("Log in");
+        
+        Button newUser = new Button();
+        newUser.setText("Create new User");
 
         TextField tfUser = new TextField();
         TextField tfPassword = new TextField();
@@ -37,14 +40,11 @@ public class Login extends Application {
         tfPassword.setMaxWidth(150);
         tfUser.setPromptText("Username");
         tfPassword.setPromptText("Password");
+        
 
         login.setOnAction(new EventHandler<ActionEvent>() {
-
             @Override
             public void handle(ActionEvent event) {
-                
-//                User user = new User(1, tfUser.getText(), tfPassword.getText());
-
                 try {
                     if (ud.findUser(tfUser.getText(), tfPassword.getText()) != null) {
                         Stage userInterface = new Stage();
@@ -66,14 +66,43 @@ public class Login extends Application {
                 }
             }
         });
+        
+        newUser.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                User user = new User(1, tfUser.getText(), tfPassword.getText());
+                try {
+                    if (ud.findUser(tfUser.getText(), tfPassword.getText()) == null) {
+                        ud.create(user);
+                        Alert alert = new Alert(AlertType.INFORMATION);
+                        alert.setTitle("New user created");
+                        alert.setContentText("User " + tfUser.getText() + " created succesfully!");
+                        alert.showAndWait();
+                    } else {
+                        Alert alert = new Alert(AlertType.INFORMATION);
+                        alert.setTitle("Error");
+                        alert.setContentText("This user already exists");
+                        alert.showAndWait();
+                    }     
+                } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }   
+        });
+        
 
         StackPane root = new StackPane();
         root.getChildren().add(login);
+        root.getChildren().add(newUser);
         root.getChildren().addAll(tfUser, tfPassword);
 
         StackPane.setAlignment(tfUser, Pos.TOP_LEFT);
         StackPane.setAlignment(tfPassword, Pos.TOP_RIGHT);
         StackPane.setAlignment(login, Pos.CENTER);
+        StackPane.setAlignment(newUser, Pos.CENTER_RIGHT);
+
+        
+        
 
         Scene scene = new Scene(root, 300, 250);
 
