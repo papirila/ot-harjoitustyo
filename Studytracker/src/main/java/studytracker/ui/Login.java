@@ -25,7 +25,7 @@ public class Login extends Application {
 
     @Override
     public void start(Stage primaryStage) throws ClassNotFoundException, SQLException {
-        Database db = new Database("jdbc:sqlite:test.db");
+        Database db = new Database("jdbc:sqlite:studies.db");
         UserDao ud = new UserDao(db);
 
         Button login = new Button();
@@ -52,6 +52,7 @@ public class Login extends Application {
                         User user = ud.findUser(tfUser.getText(), tfPassword.getText());
                         ui.setId(user.getId());
                         ui.start(userInterface);
+                        primaryStage.close();
                     } else {
                         Alert alert = new Alert(AlertType.INFORMATION);
                         alert.setTitle("Error");
@@ -59,6 +60,8 @@ public class Login extends Application {
                         alert.showAndWait();
                     }
                 } catch (SQLException ex) {
+                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
                     Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }

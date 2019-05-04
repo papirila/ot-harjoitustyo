@@ -33,7 +33,6 @@ public class CourseDaoTest {
         this.tiltu = (Course) cd.findOne(6);
         this.all = cd.findAll();
         this.courses = all.size();
-        System.out.println(cd.getMaxId());
     }
 
     @Test

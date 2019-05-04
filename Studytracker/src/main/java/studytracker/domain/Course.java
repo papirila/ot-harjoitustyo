@@ -26,12 +26,6 @@ public class Course {
         this.grade = -1;
         this.passed = false;
     }
-
-//    public Course(int id, String name, int studyPoints) {
-//        this.id = id;
-//        this.name = name;
-//        this.studyPoints = studyPoints;
-//    }
     
     public int getId() {
         return id;

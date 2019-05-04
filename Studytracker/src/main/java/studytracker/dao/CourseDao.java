@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import studytracker.domain.Course;
 
 public class CourseDao implements Dao {
@@ -35,9 +36,26 @@ public class CourseDao implements Dao {
     }
 
     @Override
-    public List findAll() throws SQLException {
+    public List<Course> findAll() throws SQLException {
         conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Course");
+        List<Course> list = new ArrayList<>();
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            Course course = new Course(rs.getInt("id"), rs.getInt("userId"), rs.getString("name"), rs.getInt("studyPoints"), rs.getInt("grade"), rs.getBoolean("passed"));
+            list.add(course);
+            System.out.println(course);
+        }
+        rs.close();
+        stmt.close();
+        conn.close();
+        return list;
+    }
+    
+    public List<Course> findAllWithUserId(int id) throws SQLException {
+        conn = database.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM Course WHERE userId = ?");
+        stmt.setInt(1, id);
         List<Course> list = new ArrayList<>();
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
@@ -84,5 +102,21 @@ public class CourseDao implements Dao {
         conn.close();
         return id; 
     }
+    
+    public List<Course> passedCourses(int id) throws SQLException {
+        List<Course> list = findAllWithUserId(id);
+        List<Course> filtered = new ArrayList();
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i).getGrade() > 0){
+                filtered.add(list.get(i));
+            }
+        }
+        
+        return filtered;
+    }
+    
+//    public List<Course> chosenCourses() {
+//        
+//    }
 
 }
