@@ -155,30 +155,20 @@ public class UI extends Application {
                 try {
                     Course course = new Course(cd.getMaxId() + 1,
                             id,
-                            addName.getText(),
-                            Integer.valueOf(addPoints.getText()),
+                            addName2.getText(),
+                            Integer.valueOf(addPoints2.getText()),
                             -1,
                             false);
                     cd.create(course);
                     data2.add(course);
-                    addName.clear();
-                    addPoints.clear();
+                    addName2.clear();
+                    addPoints2.clear();
 
                 } catch (SQLException ex) {
                     Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
-//                data2.add(new Course(Integer.valueOf(addId2.getText()),
-//                    3,
-//                    addName2.getText(),
-//                    Integer.valueOf(addPoints2.getText()),
-//                    0,
-//                    false
-//                ));
-//                addId2.clear();
-//                addName2.clear();
-//                addPoints2.clear();
 
         });
         
@@ -229,6 +219,7 @@ public class UI extends Application {
         });
 
         tfDelete.setPrefWidth(30);
+        
         Button deleteButton = new Button();
         deleteButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -236,6 +227,12 @@ public class UI extends Application {
                 int number = Integer.valueOf(tfDelete.getText());
                 for (int i = 0; i < data2.size(); i++) {
                     if (data2.get(i).getId() == number) {
+                        Course course = data2.get(i);
+                        try {
+                            cd.delete(course.getId());
+                        } catch (SQLException ex) {
+                            Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                         data2.remove(i);
                         i = data2.size();
                     }
@@ -265,6 +262,11 @@ public class UI extends Application {
                         data2.remove(i);
                         i = data2.size();
                     }
+                }
+                try {
+                    cd.passCourse(Integer.valueOf(split[0]), Integer.valueOf(split[1]));
+                } catch (SQLException ex) {
+                    Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 tfPass.clear();
             }

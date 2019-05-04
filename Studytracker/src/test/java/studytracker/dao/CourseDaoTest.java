@@ -82,9 +82,9 @@ public class CourseDaoTest {
     public void deleteTest() throws SQLException {
         int size = cd.findAll().size();
         Course course = new Course(cd.getMaxId(), 4, "name", 0);
-        cd.delete(course);
+        cd.delete(course.getId());
         int size2 = cd.findAll().size();
-        assertEquals(size, size2);
+        assertEquals(size - 1, size2);
     }
 
 }

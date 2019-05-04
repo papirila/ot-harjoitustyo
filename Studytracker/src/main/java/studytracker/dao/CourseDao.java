@@ -69,10 +69,10 @@ public class CourseDao implements Dao {
         return list;
     }
 
-    public void delete(Object key) throws SQLException {
+    public void delete(int id) throws SQLException {
         conn = database.getConnection();
         PreparedStatement stmt = conn.prepareStatement("DELETE FROM Course WHERE id = ?");
-        stmt.setObject(1, key);
+        stmt.setInt(1, id);
         stmt.executeUpdate();
         stmt.close();
         conn.close();
@@ -111,7 +111,6 @@ public class CourseDao implements Dao {
                 filtered.add(list.get(i));
             }
         }
-        
         return filtered;
     }
     
@@ -122,9 +121,24 @@ public class CourseDao implements Dao {
             if(list.get(i).getGrade() == -1){
                 filtered.add(list.get(i));
             }
-        }
-        
+        } 
         return filtered;
+    }
+    
+    public void passCourse(int id, int grade) throws SQLException {
+        conn = database.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("UPDATE Course SET grade = ?, passed = ? WHERE id = ? ");
+        stmt.setInt(1, grade);
+        stmt.setBoolean(2, true);
+        stmt.setInt(3, id);
+        stmt.executeUpdate();
+        stmt.close();
+        conn.close();    
+    }
+
+    @Override
+    public void delete(Object key) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
