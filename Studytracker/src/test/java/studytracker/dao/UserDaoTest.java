@@ -2,6 +2,8 @@
 package studytracker.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import org.junit.Assert;
@@ -79,4 +81,18 @@ public class UserDaoTest {
         assertEquals(false, ud.userExists(matti));
     }
     
+    @Test 
+    public void createTest() throws SQLException {
+        conn = database.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT max(id) FROM User");
+        ResultSet rs = stmt.executeQuery();
+        int id = rs.getInt(1) + 1;
+        rs.close();
+        stmt.close();
+        conn.close();
+        User user = new User(id, "name", "123");
+        ud.create(user);
+        User user2 = (User) ud.findOne(id);
+        assertEquals(user.getName(), user2.getName());
+    }
 }

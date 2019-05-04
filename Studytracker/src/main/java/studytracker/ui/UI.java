@@ -24,13 +24,25 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import studytracker.dao.CourseDao;
 import studytracker.databases.Database;
-
+/**
+ * Luokka UI vastaa käyttäjän kurssien näkymästä eri listoilla. 
+ * Luokassa on toiminnallisuudet kurssien poistamiseen appliedCourses-listalta ja kurssien siirtämiseen ilmoittauduista 
+ * kursseista läpäistyihin kursseihin.
+ * Käyttäjä voi lisätä kursseja eri listoille ja listat näyttävät kaikki käyttäjän ennestään ilmoittaudut sekä
+ * suoritetut kurssit.
+ * Luokka myös näyttää käyttäjän kokonaisopintopistemäärän.
+ */
 public class UI extends Application {
 
     private int id;
     private TableView passedCourses = new TableView();
     private TableView appliedCourses = new TableView();
-
+    /**
+     * Metodissa luodaan kurssilistojen näkymät (läpäistyt ja ilmoittaudutut kurssit) ja tekstikentät kurssien lisäämiseen.
+     * Ne tekstikentät, joihin on tarkoitus täyttää lukuja, on mahdotonta täyttää muuta kuin lukuja.
+     * Metodissa luodaan poista-nappi ja nappi, joka siirtää kurssin läpäistyihin kursseihin ilmoittauduttuista kursseista.
+     * Lisäksi luodaan label, joka näyttää käyttäjän kokonaisopintopistemäärän.
+     */
     @Override
     public void start(Stage primaryStage) throws SQLException, ClassNotFoundException {
         Database db = new Database("jdbc:sqlite:studies.db");
@@ -46,7 +58,9 @@ public class UI extends Application {
         addPoints.setPromptText("Study points");
         TextField addGrade = new TextField();
         addGrade.setPromptText("Grade");
-
+        /**
+         * Tekstikenttään on mahdotonta täyttää muuta kuin lukuja.
+         */
         addPoints.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue,
@@ -56,6 +70,9 @@ public class UI extends Application {
                 }
             }
         });
+        /**
+         * Tekstikenttään on mahdotonta täyttää muuta kuin lukuja.
+         */
         addGrade.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue,
@@ -69,10 +86,13 @@ public class UI extends Application {
      
 
         Button button = new Button("Add");
+        /**
+         * Lisäys-nappi luo tekstikenttien tiedoista uuden kurssin, jonka se lisää näkyvään suoritetut kurssit 
+         * -listan dataan sekä tietokantaan create-metodia käyttäen. Lopuksi tekstikentät tyhjennetään.
+         */
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-
                 Course course = new Course(15,
                         id,
                         addName.getText(),
@@ -102,7 +122,6 @@ public class UI extends Application {
         ObservableList list = hbox.getChildren();
         list.addAll(addName, addPoints, addGrade, button);
 
-//        TableView passedCourses = new TableView();
 
         TableColumn courseNameColumn = new TableColumn("Course name");
         courseNameColumn.setMinWidth(200);
@@ -129,6 +148,8 @@ public class UI extends Application {
         Label allStudyPoints = new Label("Total studypoints: " + cd.allStudyPoints(id));
 
         // TÄSTÄ ALKAA TOINEN LISTA ILMOTUT KURSSIT
+        
+        
         HBox hbox2 = new HBox();
         Label lb2 = new Label("Applied courses");
         ObservableList<Course> data2 = FXCollections.observableArrayList();
@@ -137,7 +158,9 @@ public class UI extends Application {
         addName2.setPromptText("Course name");
         TextField addPoints2 = new TextField();
         addPoints2.setPromptText("Study points");
-
+        /**
+         * Tekstikenttään on mahdotonta täyttää muuta kuin lukuja.
+         */
         addPoints2.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue,
@@ -149,6 +172,11 @@ public class UI extends Application {
         });
 
         Button button2 = new Button("Add");
+        /**
+         * Lisäys-nappi luo tekstikenttien tiedoista uuden kurssin, jonka se
+         * lisää näkyvään ilmoittaudutut kurssit -listan dataan sekä tietokantaan
+         * create-metodia käyttäen. Lopuksi tekstikentät tyhjennetään.
+         */
         button2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -177,7 +205,6 @@ public class UI extends Application {
         ObservableList list2 = hbox2.getChildren();
         list2.addAll(addName2, addPoints2, button2);
 
-//        TableView appliedCourses = new TableView();
         
         TableColumn courseIdColumn2 = new TableColumn("Course Id");
         courseIdColumn2.setMinWidth(100);
@@ -205,9 +232,12 @@ public class UI extends Application {
         appliedCourses.getColumns().addAll(courseIdColumn2, courseNameColumn2, studypointsColumn2);
 
         // TÄHÄN LOPPUU
+        
         Label labelDelete = new Label("Delete by id: ");
         TextField tfDelete = new TextField();
-
+        /**
+         * Tekstikenttään on mahdotonta täyttää muuta kuin lukuja.
+         */
         tfDelete.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue,
@@ -221,6 +251,12 @@ public class UI extends Application {
         tfDelete.setPrefWidth(30);
         
         Button deleteButton = new Button();
+        /**
+         * Delete-nappia painamalla metodi ottaa delete-tekstikentän arvon ja tallentaa sen
+         * muuttujaan number. Metodi vertailee tekstikentän antamaa lukua muihin datan id-arvoihin ja jos 
+         * number vastaa datan jonkin kurssin id:n arvoa, kurssi poistetaan datasta sekä tietokannasta delete-metodia käyttäen.
+         * Lopuksi delete-tekstikenttä tyhjennetään.
+         */
         deleteButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -247,6 +283,14 @@ public class UI extends Application {
 
         tfPass.setPrefWidth(30);
         Button passButton = new Button();
+        /**
+         * Nappia passButton painamalla metodi jakaa saamansa syötteen (kurssin id, uusi arvosana) kahteen osaan.
+         * Kurssin id tallennetaan muuttujaan number. Metodi käy datan läpi ja vertailee muuttujan number arvoa datan kurssien id-arvoihin.
+         * Jos number vastaa jonkin kurssin id:n arvoa, kyseisen kurssin passed-totuusarvo muutetaan todeksi,
+         * arvosana muutetaan tekstikentän antamaksi arvoksi ja kurssi poistetaan ilmoittaudutut kurssit -listalta ja se lisätään
+         * suoritetut kurssit -listalle. Tietokantaan päivitetään kurssin läpäisy passCourse-metodilla. Lopuksi tekstikenttä
+         * tyhjennetään.
+         */
         passButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -303,11 +347,15 @@ public class UI extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
+    /**
+     * Käynnistää luokan toiminnan
+     */
     public static void main(String[] args) {
         launch(args);
     }
-
+    /**
+     * Sisäänkirjautuneen käyttäjän id annetaan UI-luokalle 
+     */
     public void setId(int id) {
         this.id = id;
     }

@@ -20,9 +20,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import java.util.logging.Logger;
 
-
+/**
+ * Luokka vastaa kirjautumistoiminnosta
+ */
 public class Login extends Application {
-
+    /**
+     * Metodissa start luodaan kaksi nappia, joista toinen kirjaa käyttäjän sisään (login) ja toinen
+     * luo uuden käyttäjän (newUser). Luodaan tekstikentät käyttäjän nimen ja salasanan syöttämiselle.
+     */
     @Override
     public void start(Stage primaryStage) throws ClassNotFoundException, SQLException {
         Database db = new Database("jdbc:sqlite:studies.db");
@@ -41,7 +46,13 @@ public class Login extends Application {
         tfUser.setPromptText("Username");
         tfPassword.setPromptText("Password");
         
-
+        /**
+         * Nappia Login painamalla metodi tarkastaa onko käyttäjää olemassa. Jos käyttäjä on olemassa,
+         * eikä metodi findUser palauta null, niin tapahtuu siirtyminen UI näkymään, joka on käyttäjälle
+         * henkilökohtainen. UI luokkaan ohjataan findUser-metodin avulla.
+         * Jos käyttäjää ei löydy findUser-metodilla, tulee näkyviin Error-hälytys, joka kertoo kirjautujalle,
+         * että joko käyttäjänimi tai salasana on väärin.
+         */
         login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -66,7 +77,13 @@ public class Login extends Application {
                 }
             }
         });
-        
+        /**
+         * Nappia newUser painamalla metodi tarkastaa onko luotava käyttäjä null findUser-metodin avulla.
+         * Jos käyttäjä on null, luodaan uusi käyttäjä create-metodilla ja näkyviin tulee New user created -hälytys,
+         * joka kertoo kirjautujalle, että uusi käyttäjä on luotu onnistuneesti.
+         * Jos luotava käyttäjä ei ole null, tulee näkyviin Error-hälytys, joka kertoo kirjautujalle että luotava käyttäjä on 
+         * jo olemassa.
+         */
         newUser.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -90,7 +107,9 @@ public class Login extends Application {
             }   
         });
         
-
+        /**
+         * Luodaan luokan näkymä
+         */
         StackPane root = new StackPane();
         root.getChildren().add(login);
         root.getChildren().add(newUser);
@@ -100,10 +119,7 @@ public class Login extends Application {
         StackPane.setAlignment(tfPassword, Pos.TOP_RIGHT);
         StackPane.setAlignment(login, Pos.CENTER);
         StackPane.setAlignment(newUser, Pos.CENTER_RIGHT);
-
         
-        
-
         Scene scene = new Scene(root, 300, 250);
 
         primaryStage.setTitle("Log in");
@@ -111,7 +127,9 @@ public class Login extends Application {
         primaryStage.show();
     }
 
-    
+    /**
+     * Käynnistää luokan toiminnan
+     */
     public static void main(String[] args) {
         launch(args);
     }
