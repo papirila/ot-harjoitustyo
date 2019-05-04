@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package studytracker.ui;
 
 import studytracker.dao.UserDao;
@@ -22,11 +18,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import java.util.logging.Logger;
 
-/**
- *
- * @author Pauliina
- */
+
 public class Login extends Application {
 
     @Override
@@ -48,14 +42,16 @@ public class Login extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                User user = new User(1, tfUser.getText(), tfPassword.getText());
+                
+//                User user = new User(1, tfUser.getText(), tfPassword.getText());
 
                 try {
-                    if (ud.userExists(user)) {
-                        Alert alert = new Alert(AlertType.INFORMATION);
-                        alert.setTitle("Login");
-                        alert.setContentText("Welcome!");
-                        alert.showAndWait();
+                    if (ud.findUser(tfUser.getText(), tfPassword.getText()) != null) {
+                        Stage userInterface = new Stage();
+                        UI ui = new UI();
+                        User user = ud.findUser(tfUser.getText(), tfPassword.getText());
+                        ui.setId(user.getId());
+                        ui.start(userInterface);
                     } else {
                         Alert alert = new Alert(AlertType.INFORMATION);
                         alert.setTitle("Error");

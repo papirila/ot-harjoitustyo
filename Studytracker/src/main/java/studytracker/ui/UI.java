@@ -69,6 +69,7 @@ public class UI extends Application {
                 }
             }
         });
+        
        
         Button button = new Button("Add");
         button.setOnAction(new EventHandler<ActionEvent>() {
@@ -223,9 +224,9 @@ public class UI extends Application {
         Button deleteButton = new Button();
         deleteButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                int nro = Integer.valueOf(tfDelete.getText());
+                int number = Integer.valueOf(tfDelete.getText());
                 for (int i = 0; i < data2.size(); i++) {
-                    if (data2.get(i).getId() == nro) {
+                    if (data2.get(i).getId() == number) {
                         data2.remove(i);
                         i = data2.size();
                     }
@@ -234,10 +235,46 @@ public class UI extends Application {
             }
         });
         
+        Label labelPasscourse = new Label("Pass course with id and insert grade");
+        
+        TextField tfPass = new TextField();
+        
+        
+        tfPass.setPrefWidth(30);
+        Button passButton = new Button();
+        passButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                String passedCourse = tfPass.getText();
+                String[] split = passedCourse.split(" ");
+                int number = Integer.valueOf(split[0]);
+                for (int i = 0; i < data2.size(); i++) {
+                    if (data2.get(i).getId() == number) {  
+                        Course course = data2.get(i);
+                        course.setPassed(true);
+                        course.setGrade(Integer.valueOf(split[1]));
+                        data.add(course);
+                        data2.remove(i);
+                        i = data2.size();
+                    }
+                }
+                tfPass.clear();
+            }
+        });
+        
+        
+        
         deleteButton.setText("Delete");
+        
         grid.add(labelDelete, 1, 4);
         grid.add(tfDelete, 1, 5);
         grid.add(deleteButton, 1, 6);
+        
+        passButton.setText("Pass course");
+        
+        grid.add(labelPasscourse, 1, 7);
+        grid.add(tfPass, 1, 8);
+        grid.add(passButton, 1, 9);
+        
         
         grid.add(lb, 0, 0);
         grid.add(passedCourses, 0, 1);
@@ -267,5 +304,17 @@ public class UI extends Application {
     public void setId(int id) {
         this.id = id;
     }
+    
+//    public static void textLimiter(final TextField tf, final int maxLength) {
+//            tf.textProperty().addListener(new ChangeListener<String>() {
+//                @Override
+//                public void changed(final ObservableValue<? extends String> ov, final String oldValue, final String newValue) {
+//                    if (tf.getText().length() > maxLength) {
+//                        String s = tf.getText().substring(0, maxLength);
+//                        tf.setText(s);
+//                    }
+//                }
+//            });
+//        }
     
 }
