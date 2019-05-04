@@ -11,3 +11,4 @@ Suunnitellut toiminnallisuudet:
 * Opiskelija voi lisätä kurssi-ilmoittautumisia listalle
 * Opiskelija voi poistaa kurssi-ilmoittautumisia
 * Ohjelma näyttää opiskelijan tämänhetkisen op määrän
+* Ohjelmaan voi lisätä uuden käyttäjän
