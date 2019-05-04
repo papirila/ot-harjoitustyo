@@ -10,4 +10,5 @@
 | 12.4. |  2  | github release, sekvenssikaavio, README. md päivitys |
 | 26.4. | 4 | delete toiminnallisuus|
 | 3.5. | 7 | testejä lisätty |
-|  yht. |  27  | projekti edistyy tasaisesti! |
+| 4.5. | 8 | ohjelma aikalailla valmis, testejä lisätty, javadoc valmis|
+|  yht. |  35  | projekti edistyy tasaisesti! |
