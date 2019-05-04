@@ -115,8 +115,16 @@ public class CourseDao implements Dao {
         return filtered;
     }
     
-//    public List<Course> chosenCourses() {
-//        
-//    }
+    public List<Course> chosenCourses(int id) throws SQLException {
+        List<Course> list = findAllWithUserId(id);
+        List<Course> filtered = new ArrayList();
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i).getGrade() == -1){
+                filtered.add(list.get(i));
+            }
+        }
+        
+        return filtered;
+    }
 
 }

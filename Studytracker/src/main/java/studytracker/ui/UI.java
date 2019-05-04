@@ -92,7 +92,6 @@ public class UI extends Application {
                 try {
                     cd.create(course);
                 } catch (SQLException ex) {
-                    System.out.println("CREATE COURSE FLAMAA");
                     Logger.getLogger(UI.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
@@ -182,6 +181,8 @@ public class UI extends Application {
 //                addPoints2.clear();
 
         });
+        
+        data2.addAll(cd.chosenCourses(id));
 
         ObservableList list2 = hbox2.getChildren();
         list2.addAll(addName2, addPoints2, button2);
