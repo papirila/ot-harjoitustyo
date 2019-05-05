@@ -26,7 +26,7 @@ Jos käyttäjän luominen onnistuu, näytetään hälytysikkuna, joka kertoo onn
 
 Jos kirjautuminen onnistuu, näkymä siirtyy UI-luokan näkymään
 
-<img src="https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/pictures/ui-n%C3%A4kym%C3%A4.PNG" width="400">
+<img src="https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/pictures/ui-n%C3%A4kym%C3%A4.PNG" width="600">
 
 Näkymä mahdollistaa kurssien listaamisen kahdelle eri listalle painamalla nappia "Add", sekä kurssien poistamisen toiselta (ilmoittaudutut 
 kurssit) listalta kurssin id:llä, painamalla nappia "Delete with id" ja syöttämällä poistettavan kurssin id:n. 
