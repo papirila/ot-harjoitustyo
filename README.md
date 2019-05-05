@@ -14,6 +14,10 @@ Harjoitustyön aiheena on **Studytracker**. Ohjelman avulla opiskelija voi pitä
 
 [Kayttoohje](https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
+## Release 
+
+[Loppupalautus]("https://github.com/papirila/ot-harjoitustyo/releases/tag/V1.0")
+
 ## Komentorivitoiminnot
 
 # Testaus
