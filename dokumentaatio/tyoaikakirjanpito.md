@@ -11,4 +11,5 @@
 | 26.4. | 4 | delete toiminnallisuus|
 | 3.5. | 7 | testejä lisätty |
 | 4.5. | 8 | ohjelma aikalailla valmis, testejä lisätty, javadoc valmis|
-|  yht. |  35  | projekti edistyy tasaisesti! |
+| 5.5. | 6 | dokumentaatio valmis, release tehty |
+|  yht. |  41  | projekti valmis |
