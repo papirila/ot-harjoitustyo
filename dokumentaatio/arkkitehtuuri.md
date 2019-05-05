@@ -40,3 +40,53 @@ Sovelluslogiikan testeissä hyödynnetään tietokannassa jo valmiiksi olevaa ti
 ## Tietokanta
 
 Ohjelma tallettaa tiedot studies-tietokantaan, jossa käyttäjät talletetaan muodossa 1, "matti", "123" (käyttäjän id, käyttäjän nimi, käyttäjän salasana). Kurssit tallennetaan muodossa 1, 3, "ohpe", 6, 5, false (kurssin id, kurssin käyttäjään viittaava id, kurssin nimi, kurssin opintopisteet, kurssin arvosana, onko kurssi suoritettu vai ei).
+
+## Sekvenssikaaviota
+
+Ohjelman päätoiminnallisuuksia vastaavia sekvenssikaavioita.
+
+### Kirjautuminen
+
+Kun käyttäjä syöttää kirjautumisnäkymässä käyttäjätunnuksen ja salasanan, sekä painaa nappia login, etenee sovelluksen kontrolli seuraavasti
+<img src="https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/Logging%20in.png" width="600">
+
+Kaaviossa sisäänkirjautuminen onnistuu. Käyttäjä (nimeltä tommi, salasanalla "testeri") painaa nappia login, jonka jälkeen Login-luokka kyselee UserDao-luokalta, löytyykö käyttäjää tietokannasta. UserDao palauttaa käyttäjän Login-luokalle, jonka jälkeen Login-luokka asettaa UI-luokalle tiedon käyttäjän id:stä. UI-luokka kyselee käyttäjän id:n tiedon User-luokalta, joka palauttaa sen UI-luokalle. Lopuksi näkymä siirtyy UI-luokkaan.
+
+### Uuden käyttäjän luominen
+
+Kun käyttäjä syöttää kirjautumisnäkymässä käyttäjätunnuksen ja salasanan, sekä painaa nappia newUser, etenee sovelluksen kontrolli seuraavasti
+<img src="https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/Creating%20a%20new%20user.png" width="600">
+
+Kaaviossa luodaan onnistuneesti uusi käyttäjä. Käyttäjä luo uuden käyttäjän (tommi2 salasanalla "testeri2" ja id:llä 1), jolloin Login-luokka kyselee UserDao-luokalta onko käyttäjää olemassa. UserDao palauttaa null, eli käyttäjää ei ole vielä, jolloin Login-luokka lähettää UserDao luokalle käskyn luoda käyttäjä. Tämän jälkeen tulee esiin hälytys, jonka mukaan uusi käyttäjä luotiin onnistuneesti.
+
+### Uuden suoritetun kurssin luominen
+
+Kun käyttäjä painaa UI-luokassa nappia Add suoritetut kurssit -listan alla, etenee sovelluksen kontrolli seuraavasti
+<img src="https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/Creating%20a%20new%20passed%20course.png" width="600">
+
+Kaaviossa UI-luokka luo uuden course-olion, jonka jälkeen UI-luokka kyselee CourseDao-luokalta tietoa kurssilistan suurimmasta id:stä (7). CourseDao-luokka palauttaa UI-luokalle suurimman tämänhetkisen id:n, jonka jälkeen UI-luokka asettaa olion course id:ksi suurimman id:n arvon, johon on summattu luku 1 (8). Course-olio palauttaa UI-luokalle tiedon, että sen id on tällä hetkellä 8. UI-luokka lisää course-olion näkyvän listan dataan ja käskee CourseDao-luokkaa luomaan kurssin tietokantaan. Tämän jälkeen uusi kurssi näkyy suoritettujen kurssien listalla.
+
+### Muut toiminnallisuudet
+
+Samalla tavalla muissa toiminnallisuuksissa käyttöliittymän tapahtumakäsittelijä kutsuu sopivaa sovelluslogiikan metodia, jolloin sovelluslogiikka päivittää käyttäjien ja kurssien tilaa. Näkymä päivittyy viimeistään kun ohjelma käynnistetään uudestaan.
+
+# Ohjelman heikkoudet
+
+Kurssien opintopistemäärä ei päivity välittömästi, vaan päivittyy vasta kun ohjelma ajetaan uudestaan.
+Testikenttien merkkimääriä ei ole rajoitettu mitenkään.
+Samoja kursseja voi mahdollisesti lisätä listoille ja tietokantaan.
+Kursseja luodessa on mahdollista jättää jokin tekstikentistä tyhjäksi, ohjelma olettaa että käyttäjä kirjaa kaikki tiedot kursseista.
+Kurssin läpäisemistä ei voi perua.
+
+
+
+
+
+
+
+
+
+
+
+
+
