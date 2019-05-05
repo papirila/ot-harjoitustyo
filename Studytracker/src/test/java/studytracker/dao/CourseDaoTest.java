@@ -50,10 +50,6 @@ public class CourseDaoTest {
         Assert.assertEquals(5, tiltu.getUserId());
     }
 
-//    @Test
-//    public void findOneCourseTest4() {
-//        Assert.assertEquals(true, tiltu.getPassed());    
-//    }
     @Test
     public void findOneCourseTest5() {
         Assert.assertEquals(5, tiltu.getGrade());
