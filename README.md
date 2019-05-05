@@ -10,6 +10,10 @@ Harjoitustyön aiheena on **Studytracker**. Ohjelman avulla opiskelija voi pitä
 
 [Arkkitehtuuri](https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+[Testaus] (https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md)
+
+[Kayttoohje] (https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+
 ## Komentorivitoiminnot
 
 # Testaus
