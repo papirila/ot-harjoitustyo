@@ -12,7 +12,6 @@ Sovellus käynnistyy Login-näkymään (kirjautuminen)
 
 Kirjautuminen onnistuu kirjoittamalla vasemmanpuoliseen testikenttään käyttäjätunnuksen ja oikeanpuoliseen tekstikenttään 
 salasanan, ja painamalla nappia "Log in". Huom! Sovellus asettaa käyttäjän id:ksi arvon 1 jos UI-luokka avataan ilman sisäänkirjautumista.
-Jos sovellus kysyy, aseta Login-luokka main-luokaksi.
 
 Jos kirjautuminen ei onnistu, näkyviin tulee error-hälytysikkuna.
 
