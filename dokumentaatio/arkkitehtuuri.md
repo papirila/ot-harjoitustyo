@@ -24,12 +24,14 @@ Käyttöliittymä on erillään sovelluslogiikasta, jolloin se ainoastaan kutsuu
 ## Sovelluslogiikka
 
 Ohjelman domain luokassa olevat luokat toimivat vastaavan relaatiokaavion mukaisesti
+
 <img src="https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/pictures/Sovelluslogiikka.jpeg" width="600">
 
 Luokat kuvaavat käyttäjää ja käyttäjällä olevia kursseja.
 
-Ohjelman osien suhdetta kuvaava pakkauskaavio:
-<img src="https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/pictures/pakkauskaavio.jpeg" width="600">
+Ohjelman osien suhdetta kuvaava pakkauskaavio
+
+<img src="https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/pictures/Pakkauskaavio.jpeg" width="600">
 
 ## Tietojen pysyväistallennus
 
