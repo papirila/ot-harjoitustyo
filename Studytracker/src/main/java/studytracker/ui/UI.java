@@ -146,8 +146,6 @@ public class UI extends Application {
         passedCourses.getColumns().addAll(courseNameColumn, studypointsColumn, gradeColumn);
 
         Label allStudyPoints = new Label("Total studypoints: " + cd.allStudyPoints(id));
-
-        // TÄSTÄ ALKAA TOINEN LISTA ILMOTUT KURSSIT
         
         
         HBox hbox2 = new HBox();
@@ -231,7 +229,6 @@ public class UI extends Application {
 
         appliedCourses.getColumns().addAll(courseIdColumn2, courseNameColumn2, studypointsColumn2);
 
-        // TÄHÄN LOPPUU
         
         Label labelDelete = new Label("Delete by id: ");
         TextField tfDelete = new TextField();
@@ -360,15 +357,4 @@ public class UI extends Application {
         this.id = id;
     }
 
-//    public static void textLimiter(final TextField tf, final int maxLength) {
-//            tf.textProperty().addListener(new ChangeListener<String>() {
-//                @Override
-//                public void changed(final ObservableValue<? extends String> ov, final String oldValue, final String newValue) {
-//                    if (tf.getText().length() > maxLength) {
-//                        String s = tf.getText().substring(0, maxLength);
-//                        tf.setText(s);
-//                    }
-//                }
-//            });
-//        }
 }

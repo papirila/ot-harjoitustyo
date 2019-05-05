@@ -12,6 +12,9 @@ public class Course {
     /**
      * Yksittäistä kurssia kuvaava luokka
      */
+    /**
+     * Suoritetun kurssin konstruktori
+     */
     public Course(int id, int userId, String name, int studyPoints, int grade, boolean passed) {
         this.id = id;
         this.userId = userId;
@@ -20,7 +23,9 @@ public class Course {
         this.grade = grade;
         this.passed = passed;
     }
-    
+    /**
+     * Ilmoittaudutun kurssin konstruktori, arvosanaksi asetetaan -1 ja passed arvoksi false
+     */
     public Course(int id, int userId, String name, int studyPoints) {
         this.id = id;
         this.userId = userId;
