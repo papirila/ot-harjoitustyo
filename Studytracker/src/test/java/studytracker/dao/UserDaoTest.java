@@ -95,4 +95,24 @@ public class UserDaoTest {
         User user2 = (User) ud.findOne(id);
         assertEquals(user.getName(), user2.getName());
     }
+    
+    /**
+     * Poistetaan create testin tekemä käyttäjä jotta testit eivät mene pilalle
+     */
+    @Test
+    public void fixausTest() throws SQLException {
+        conn = database.getConnection();
+        PreparedStatement stmt = conn.prepareStatement("SELECT max(id) FROM User");
+        ResultSet rs = stmt.executeQuery();
+        int id = rs.getInt(1);
+        rs.close();
+        stmt.close();
+        
+        PreparedStatement stmt2 = conn.prepareStatement("DELETE FROM User WHERE id = ?");
+        stmt2.setInt(1, id);
+        stmt2.executeUpdate();
+        stmt.close();
+        conn.close();
+        assertEquals(true, true);
+    }
 }
