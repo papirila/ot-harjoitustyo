@@ -3,6 +3,7 @@
 ## Ohjelman rakenne
 
 Ohjelman pakkausrakenne on seuraava 
+
 <img src="https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/pictures/Pakkausrakenne.jpeg" width="600">
 
 Pakkaus studytracker.ui sisältää JavaFX:llä toteutetun käyttöliittymän ja studytracker.domain sovelluslogiikan. Studytracker.dao vastaa tietojen pysyväistallennuksesta.
