@@ -16,7 +16,7 @@ Harjoitustyön aiheena on **Studytracker**. Ohjelman avulla opiskelija voi pitä
 
 ## Release 
 
-[Loppupalautus]("https://github.com/papirila/ot-harjoitustyo/releases/tag/V1.0")
+[Loppupalautus](https://github.com/papirila/ot-harjoitustyo/releases/tag/V1.0)
 
 ## Komentorivitoiminnot
 
