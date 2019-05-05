@@ -48,6 +48,7 @@ Ohjelman päätoiminnallisuuksia vastaavia sekvenssikaavioita.
 ### Kirjautuminen
 
 Kun käyttäjä syöttää kirjautumisnäkymässä käyttäjätunnuksen ja salasanan, sekä painaa nappia login, etenee sovelluksen kontrolli seuraavasti
+
 <img src="https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/Logging%20in.png" width="600">
 
 Kaaviossa sisäänkirjautuminen onnistuu. Käyttäjä (nimeltä tommi, salasanalla "testeri") painaa nappia login, jonka jälkeen Login-luokka kyselee UserDao-luokalta, löytyykö käyttäjää tietokannasta. UserDao palauttaa käyttäjän Login-luokalle, jonka jälkeen Login-luokka asettaa UI-luokalle tiedon käyttäjän id:stä. UI-luokka kyselee käyttäjän id:n tiedon User-luokalta, joka palauttaa sen UI-luokalle. Lopuksi näkymä siirtyy UI-luokkaan.
@@ -55,6 +56,7 @@ Kaaviossa sisäänkirjautuminen onnistuu. Käyttäjä (nimeltä tommi, salasanal
 ### Uuden käyttäjän luominen
 
 Kun käyttäjä syöttää kirjautumisnäkymässä käyttäjätunnuksen ja salasanan, sekä painaa nappia newUser, etenee sovelluksen kontrolli seuraavasti
+
 <img src="https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/Creating%20a%20new%20user.png" width="600">
 
 Kaaviossa luodaan onnistuneesti uusi käyttäjä. Käyttäjä luo uuden käyttäjän (tommi2 salasanalla "testeri2" ja id:llä 1), jolloin Login-luokka kyselee UserDao-luokalta onko käyttäjää olemassa. UserDao palauttaa null, eli käyttäjää ei ole vielä, jolloin Login-luokka lähettää UserDao luokalle käskyn luoda käyttäjä. Tämän jälkeen tulee esiin hälytys, jonka mukaan uusi käyttäjä luotiin onnistuneesti.
@@ -62,6 +64,7 @@ Kaaviossa luodaan onnistuneesti uusi käyttäjä. Käyttäjä luo uuden käyttä
 ### Uuden suoritetun kurssin luominen
 
 Kun käyttäjä painaa UI-luokassa nappia Add suoritetut kurssit -listan alla, etenee sovelluksen kontrolli seuraavasti
+
 <img src="https://github.com/papirila/ot-harjoitustyo/blob/master/dokumentaatio/Creating%20a%20new%20passed%20course.png" width="600">
 
 Kaaviossa UI-luokka luo uuden course-olion, jonka jälkeen UI-luokka kyselee CourseDao-luokalta tietoa kurssilistan suurimmasta id:stä (7). CourseDao-luokka palauttaa UI-luokalle suurimman tämänhetkisen id:n, jonka jälkeen UI-luokka asettaa olion course id:ksi suurimman id:n arvon, johon on summattu luku 1 (8). Course-olio palauttaa UI-luokalle tiedon, että sen id on tällä hetkellä 8. UI-luokka lisää course-olion näkyvän listan dataan ja käskee CourseDao-luokkaa luomaan kurssin tietokantaan. Tämän jälkeen uusi kurssi näkyy suoritettujen kurssien listalla.
@@ -70,7 +73,7 @@ Kaaviossa UI-luokka luo uuden course-olion, jonka jälkeen UI-luokka kyselee Cou
 
 Samalla tavalla muissa toiminnallisuuksissa käyttöliittymän tapahtumakäsittelijä kutsuu sopivaa sovelluslogiikan metodia, jolloin sovelluslogiikka päivittää käyttäjien ja kurssien tilaa. Näkymä päivittyy viimeistään kun ohjelma käynnistetään uudestaan.
 
-# Ohjelman heikkoudet
+## Ohjelman heikkoudet
 
 Kurssien opintopistemäärä ei päivity välittömästi, vaan päivittyy vasta kun ohjelma ajetaan uudestaan.
 Testikenttien merkkimääriä ei ole rajoitettu mitenkään.
